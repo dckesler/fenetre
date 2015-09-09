@@ -1,0 +1,36 @@
+{
+  "name": "fenetre",
+  "version": "0.0.1",
+  "description": "A Socket Router",
+  "main": "lib/docks.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --compilers js:mocha-traceur test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dckesler/fenetre.git"
+  },
+  "keywords": [
+    "sockets",
+    "router",
+    "node"
+  ],
+  "author": "dckesler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dckesler/fenetre/issues"
+  },
+  "homepage": "https://github.com/dckesler/fenetre",
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "mocha-traceur": "^2.1.0",
+    "should": "^7.0.4",
+    "sinon": "^1.16.1"
+  },
+  "dependencies": {
+    "ws": "^0.8.0"
+  }
+}
