@@ -5,8 +5,8 @@ import WebSocket from "ws";
 
 var wss = WebSocket.Server;
 
-import fenetre from "./../lib/fenetre.js";
-import urlHandler from "./../lib/urlHandler.js";
+import fenetre from "./../src/fenetre.js";
+import urlHandler from "./../src/urlHandler.js";
 
 fenetre.init(new wss({port: 8335}));
 var runner = function(){
