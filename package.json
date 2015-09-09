@@ -2,7 +2,7 @@
   "name": "fenetre",
   "version": "0.0.1",
   "description": "A Socket Router",
-  "main": "lib/docks.js",
+  "main": "lib/fenetre.js",
   "directories": {
     "test": "test"
   },
