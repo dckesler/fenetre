@@ -1,6 +1,6 @@
 {
   "name": "fenetre",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A Socket Router",
   "main": "lib/fenetre.js",
   "directories": {
