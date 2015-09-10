@@ -46,13 +46,13 @@ function json(obj){
   this.send(string);
 }
 
-function socketStatus(socket, status){
+function socketStatus(socket, reqObj, status){
   if(!status){
     socket.close(1003, `No corresonding fenetre route for ${socket.upgradeReq.url}`);
     delete this.activeSockets[socket.sid];
   }
   if(status.write){
-    socket.on("message", status.write.bind(socket));
+    socket.on("message", status.write.bind(socket, reqObj));
   } else {
     socket.on("message", function(){
       socket.write({error: {type: "privileges", message: "This is a read only socket. It doesn't have write privileges."}});

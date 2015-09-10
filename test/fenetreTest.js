@@ -88,6 +88,17 @@ describe("fenetre", function(){
           socket.send("My data");
         })
       })
+      it("Should have the request argument passed into the write callback", function(done){
+        fenetre.at("/test/write/:req", null, function(req){
+          if(req.params.req !== "123") throw new Error("Request params object was not correct");
+          if(req.query.my !== "data") throw new Error("Request query object was not correct");
+          done();
+        })
+        var socket = new WebSocket("ws://localhost:8335/test/write/123?my=data");
+        socket.on("open", function(){
+          socket.send("some stuff");
+        })
+      })
     })
     describe("Matching priority", function(){
       require("./priorityTest.js");

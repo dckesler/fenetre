@@ -45,7 +45,7 @@ export default {
     cb && setTimeout(cb.bind(socket, reqObj));
 
     //Establish what kind of socket this is and return it to docks.js
-    return getSocketStatus(socket, cb, wcb);
+    return getSocketStatus(socket, reqObj, cb, wcb);
   }
 };
 
@@ -75,8 +75,8 @@ function getQuery(string){
   return queryObj;
 }
 
-function getSocketStatus(socket, cb, wcb){
-  var statusArr = [socket];
+function getSocketStatus(socket, reqObj, cb, wcb){
+  var statusArr = [socket, reqObj];
   if(!cb && !wcb) statusArr.push(false)
   if(cb && wcb) statusArr.push({read: true, write: wcb})
   if(cb && !wcb) statusArr.push({read: true})
@@ -120,6 +120,7 @@ function reUrl(obj){
 }
 
 function notMatch(newb, oldbie){
+  if((newb && !oldbie) || (oldbie && !newb)) return true;
   if(newb === oldbie) return false;
   if(newb[0] === ":" && oldbie[0] === ":") return false;
   return true;
