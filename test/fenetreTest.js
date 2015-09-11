@@ -90,6 +90,7 @@ describe("fenetre", function(){
       })
       it("Should have the request argument passed into the write callback", function(done){
         fenetre.at("/test/write/:req", null, function(req){
+          if(req.data !== "some stuff") throw new Error("Request data was not correct");
           if(req.params.req !== "123") throw new Error("Request params object was not correct");
           if(req.query.my !== "data") throw new Error("Request query object was not correct");
           done();

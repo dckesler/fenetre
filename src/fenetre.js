@@ -52,7 +52,11 @@ function socketStatus(socket, reqObj, status){
     delete this.activeSockets[socket.sid];
   }
   if(status.write){
-    socket.on("message", status.write.bind(socket, reqObj));
+    socket.on("message", function(data){
+      console.log(data);
+      reqObj.data = data;
+      status.write.call(socket, reqObj)
+    });
   } else {
     socket.on("message", function(){
       socket.write({error: {type: "privileges", message: "This is a read only socket. It doesn't have write privileges."}});
