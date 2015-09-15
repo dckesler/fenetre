@@ -42,7 +42,7 @@ export default {
     });
 
     //If there's callback wrap it into a web api to let the callstack clear before running it.
-    cb && setTimeout(cb.bind(socket, reqObj));
+    cb && setTimeout(cb.bind(socket, reqObj, socket));
 
     //Establish what kind of socket this is and return it to docks.js
     return getSocketStatus(socket, reqObj, cb, wcb);

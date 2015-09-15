@@ -53,9 +53,8 @@ function socketStatus(socket, reqObj, status){
   }
   if(status.write){
     socket.on("message", function(data){
-      console.log(data);
       reqObj.data = data;
-      status.write.call(socket, reqObj)
+      status.write.call(socket, reqObj, socket);
     });
   } else {
     socket.on("message", function(){
